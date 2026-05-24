@@ -26,7 +26,7 @@ export default function CashFlowChart({ data }: Props) {
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
             <XAxis dataKey="year" tick={{ fontSize: 11 }} interval={4} />
             <YAxis tick={{ fontSize: 11 }} />
-            <Tooltip formatter={(v: number) => [`${v}万円`]} />
+            <Tooltip formatter={(v) => [`${v}万円`]} />
             <Legend wrapperStyle={{ fontSize: 12 }} />
             <ReferenceLine y={0} stroke="#999" />
             <Bar dataKey="年間CF" fill="#3b82f6" radius={[3, 3, 0, 0]} />
@@ -42,7 +42,7 @@ export default function CashFlowChart({ data }: Props) {
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
             <XAxis dataKey="year" tick={{ fontSize: 11 }} interval={4} />
             <YAxis tick={{ fontSize: 11 }} />
-            <Tooltip formatter={(v: number) => [`${v}万円`]} />
+            <Tooltip formatter={(v) => [`${v}万円`]} />
             <Line dataKey="ローン残高" stroke="#f59e0b" strokeWidth={2} dot={false} />
           </ComposedChart>
         </ResponsiveContainer>
