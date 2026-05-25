@@ -94,7 +94,7 @@ export default function InputForm({ input, onChange }: Props) {
                     max={max}
                     step={step}
                     onChange={(e) => set(key, parseFloat(e.target.value) || 0)}
-                    className="w-28 border border-gray-300 rounded-lg px-3 py-1.5 text-right text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    className="w-28 border border-gray-300 rounded-lg px-3 py-1.5 text-right text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400"
                   />
                   <span className="text-xs text-gray-500">{unit}</span>
                   <input
