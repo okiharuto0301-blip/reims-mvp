@@ -22,21 +22,21 @@ export default function AmortizationTable({ schedule }: Props) {
           <table className="w-full text-xs">
             <thead>
               <tr className="bg-gray-50 border-b">
-                <th className="text-right px-2 py-2 font-medium text-gray-600">年</th>
-                <th className="text-right px-2 py-2 font-medium text-gray-600">年間返済額</th>
-                <th className="text-right px-2 py-2 font-medium text-gray-600">うち利息</th>
-                <th className="text-right px-2 py-2 font-medium text-gray-600">うち元金</th>
-                <th className="text-right px-2 py-2 font-medium text-gray-600">ローン残高</th>
+                <th className="text-right px-2 py-2 font-medium text-gray-900">年</th>
+                <th className="text-right px-2 py-2 font-medium text-gray-900">年間返済額</th>
+                <th className="text-right px-2 py-2 font-medium text-gray-900">うち利息</th>
+                <th className="text-right px-2 py-2 font-medium text-gray-900">うち元金</th>
+                <th className="text-right px-2 py-2 font-medium text-gray-900">ローン残高</th>
               </tr>
             </thead>
             <tbody>
               {schedule.map((row) => (
                 <tr key={row.year} className="border-b hover:bg-gray-50">
-                  <td className="text-right px-2 py-1.5">{row.year}年目</td>
-                  <td className="text-right px-2 py-1.5">{row.ads.toFixed(1)}万円</td>
+                  <td className="text-right px-2 py-1.5 text-gray-900">{row.year}年目</td>
+                  <td className="text-right px-2 py-1.5 text-gray-900">{row.ads.toFixed(1)}万円</td>
                   <td className="text-right px-2 py-1.5 text-red-500">{row.interest.toFixed(1)}万円</td>
                   <td className="text-right px-2 py-1.5 text-blue-500">{row.principal.toFixed(1)}万円</td>
-                  <td className="text-right px-2 py-1.5">{row.endBalance.toFixed(1)}万円</td>
+                  <td className="text-right px-2 py-1.5 text-gray-900">{row.endBalance.toFixed(1)}万円</td>
                 </tr>
               ))}
             </tbody>
