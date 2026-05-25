@@ -12,7 +12,7 @@ interface Props {
 export default function CashFlowChart({ data }: Props) {
   const chartData = data.map((d) => ({
     year: `${d.year}年目`,
-    年間CF: Math.round(d.annualCF * 10) / 10,
+    フリーCF: Math.round(d.freeCF * 10) / 10,
     累積CF: Math.round(d.cumulativeCF * 10) / 10,
     ローン残高: Math.round(d.loanBalance * 10) / 10,
   }));
@@ -20,16 +20,16 @@ export default function CashFlowChart({ data }: Props) {
   return (
     <div className="space-y-8">
       <div>
-        <h3 className="text-sm font-semibold text-gray-600 mb-3">年間キャッシュフロー推移（万円）</h3>
-        <ResponsiveContainer width="100%" height={240}>
+        <h3 className="text-sm font-semibold text-gray-600 mb-3">年間フリーキャッシュフロー（万円）</h3>
+        <ResponsiveContainer width="100%" height={220}>
           <ComposedChart data={chartData} margin={{ top: 5, right: 10, left: 0, bottom: 5 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-            <XAxis dataKey="year" tick={{ fontSize: 11 }} interval={4} />
+            <XAxis dataKey="year" tick={{ fontSize: 11 }} />
             <YAxis tick={{ fontSize: 11 }} />
             <Tooltip formatter={(v) => [`${v}万円`]} />
             <Legend wrapperStyle={{ fontSize: 12 }} />
             <ReferenceLine y={0} stroke="#999" />
-            <Bar dataKey="年間CF" fill="#3b82f6" radius={[3, 3, 0, 0]} />
+            <Bar dataKey="フリーCF" fill="#3b82f6" radius={[3, 3, 0, 0]} />
             <Line dataKey="累積CF" stroke="#10b981" strokeWidth={2} dot={false} />
           </ComposedChart>
         </ResponsiveContainer>
@@ -37,10 +37,10 @@ export default function CashFlowChart({ data }: Props) {
 
       <div>
         <h3 className="text-sm font-semibold text-gray-600 mb-3">ローン残高推移（万円）</h3>
-        <ResponsiveContainer width="100%" height={200}>
+        <ResponsiveContainer width="100%" height={180}>
           <ComposedChart data={chartData} margin={{ top: 5, right: 10, left: 0, bottom: 5 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-            <XAxis dataKey="year" tick={{ fontSize: 11 }} interval={4} />
+            <XAxis dataKey="year" tick={{ fontSize: 11 }} />
             <YAxis tick={{ fontSize: 11 }} />
             <Tooltip formatter={(v) => [`${v}万円`]} />
             <Line dataKey="ローン残高" stroke="#f59e0b" strokeWidth={2} dot={false} />
